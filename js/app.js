@@ -1,10 +1,3 @@
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -16,23 +9,35 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
 
 //Create array of 16 cards
 let cardArray = $('.card').map(function(){
-  return $(this).text();
+  return $(this);
 });
 
-// Shuffle the 16 cards using function provided
+// Shuffle the 16 cards using function provided, create HTML, and add to the page
 $(document).ready(function(){
-  shuffle(cardArray);
+  const arrayLength = cardArray.length;
+
+  let arrayClass = function () {
+    shuffle(cardArray);
+    for (let x = 1; x <= arrayLength; x++) {
+      let Class = item.find('li').css('class');
+      return Class;
+      };
+    };
+
+  $('.deck').find('li').remove();
+
+  for (let x = 1; x <= arrayLength; x++) {
+      $('.deck').append('<li> </li>');
+  };
+
+  $('.deck').find('li').append('<i> </i>');
+  $('i').css('class' , 'arrayClass');
 });
-
-//Loop through each card creating html
-
-
 
 //Function to show cards as they are clicked
 $('.card').on('click', function() {
