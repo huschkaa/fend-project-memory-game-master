@@ -13,24 +13,30 @@ function shuffle(array) {
 }
 
 //Create array of 16 cards
-let cardArray = $('.card')
+let cardArray = $('.card');
 
 // Shuffle the 16 cards using function provided, create HTML, and add to the page
 shuffle(cardArray);
 $('.deck').append(cardArray);
 
-
 //Function to show cards as they are clicked
 cardClick = $('.card').on('click', function() {
   $(this).toggleClass("open show");
+  let cardcount = $('.open').length;
+  return cardcount;
 });
 
+console.log(cardClick);
 //Add card to list of open cards when clicked
-openCard = $('.card open show').on('click', function() {
-    let pickedCard = append(pickedCard) ;
-});
+
 
 //If two cards are clicked check to see if they match
+
+
+
+
+
+
 
 
 /*
