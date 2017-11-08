@@ -20,13 +20,15 @@ shuffle(cardArray);
 $('.deck').append(cardArray);
 
 //Function to show cards as they are clicked
-cardClick = $('.card').on('click', function() {
-  $(this).toggleClass("open show");
-  let cardcount = $('.open').length;
+let cardcount;
+let cardClick = $('.card').on('click', function() {
+  $(this).attr('class','open card show');
+  let cardcount = $('ul').find('.open').length;
   return cardcount;
 });
 
 console.log(cardClick);
+
 //Add card to list of open cards when clicked
 
 
