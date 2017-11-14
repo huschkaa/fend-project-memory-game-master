@@ -20,14 +20,28 @@ shuffle(cardArray);
 $('.deck').append(cardArray);
 
 //Function to show cards as they are clicked
-let cardcount;
-let cardClick = $('.card').on('click', function() {
+function cardClickHandler(event) {
   $(this).attr('class','open card show');
   let cardcount = $('ul').find('.open').length;
-  return cardcount;
-});
+  console.log(cardcount);
+//Array to check class of cards that are open once two are picked and turn them a color
+  if (cardcount == 2) {
+    let openClass = $('.open').find('i');
+    let classone = openClass[0];
+    let classtwo = openClass[1];
+    console.log(classone);
+    console.log(classtwo);
 
-console.log(cardClick);
+    if (classone == classtwo){
+        $('.open').attr('class','open card show match');
+    }
+    else {
+        $('.open').attr('class','open card show miss');
+    }
+  };
+};
+$('.card').on('click', cardClickHandler);
+
 
 //Add card to list of open cards when clicked
 
