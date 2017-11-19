@@ -54,7 +54,10 @@ function cardClickHandler(event) {
 //If function when the two cards are a match
     if (classone == classtwo){
         $('.click').attr('class','open card show match');
-        console.log($('.match').length)
+        console.log($('.match').length);
+        if (($('.match').length)==16) {
+          modalfire;
+        }
         return moves;
     }
 
@@ -93,6 +96,7 @@ $('.restart').on('click', function () {
 });
 
 //Function to track moves, time, and stars once game is Won and pop up
+function modalfire() {
   document.getElementById("popup").innerHTML = "With " + moves + " moves and " + $('.fa-star').length + " stars, and ";
   let mpopup = document.getElementById('mpopupBox');
   let mpLink = document.getElementById("mpopupLink");
@@ -105,3 +109,4 @@ $('.restart').on('click', function () {
   close.onclick = function() {
       mpopup.style.display = "none";
   };
+};
