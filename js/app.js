@@ -101,10 +101,7 @@ function modalfire() {
   let mpopup = document.getElementById('mpopupBox');
   let mpLink = document.getElementById("mpopupLink");
   let close = document.getElementsByClassName("close")[0];
-
-  mpLink.onclick = function() {
-      mpopup.style.display = "block";
-  };
+  mpopup.style.display = "block";
 
   close.onclick = function() {
       mpopup.style.display = "none";
