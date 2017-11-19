@@ -39,11 +39,13 @@ function cardClickHandler(event) {
     if (moves > 13 && moves < 16) {
       $('.stars').find('#twostar').attr('class','star');
       }
+
 //Remove two stars after 15 moves
     if (moves >= 16 && moves < 20) {
       $('.stars').find('#twostar').remove();
       $('.stars').find('#onestar').remove();
     }
+
 //remove three stars after 19 Moves
     if (moves >= 20) {
       $('.stars').find('#twostar').remove();
@@ -54,9 +56,8 @@ function cardClickHandler(event) {
 //If function when the two cards are a match
     if (classone == classtwo){
         $('.click').attr('class','open card show match');
-        console.log($('.match').length);
         if (($('.match').length)==16) {
-          modalfire;
+          modalfire ();
         }
         return moves;
     }
@@ -67,21 +68,23 @@ function cardClickHandler(event) {
           setTimeout(function(){ $('.click').attr('class','card'); }, 999);
           return moves;
     }
-  };
-};
+  }
+}
 
 $('.card').on('click', cardClickHandler);
 
-//Timer to display time once first card is clicked
-let timerVar = setInterval(countTimer, 1000);
-let totalSeconds = 0;
-function countTimer() {
-   ++totalSeconds;
-   let minute = Math.floor(totalSeconds/60);
-   let seconds = totalSeconds - (minute*60);
+//Timer to display at start of game
+  let timerVar = setInterval(countTimer, 1000);
+  let totalSeconds = 0;
+  function countTimer() {
+     ++totalSeconds;
+     let minute = Math.floor(totalSeconds/60);
+     let seconds = totalSeconds - (minute*60);
+     let time = minute + ":" + seconds;
+     document.getElementById("timer").innerHTML = time;
+     return time;
+  }
 
-   document.getElementById("timer").innerHTML = minute + ":" + seconds;
-};
 
 //function when restart is clicked to shuffle board, restart clock, moves, and stars
 $('.restart').on('click', function () {
@@ -97,13 +100,12 @@ $('.restart').on('click', function () {
 
 //Function to track moves, time, and stars once game is Won and pop up
 function modalfire() {
-  document.getElementById("popup").innerHTML = "With " + moves + " moves and " + $('.fa-star').length + " stars, and ";
+  document.getElementById("popup").innerHTML = "With " + moves + " moves, and " + $('.fa-star').length + " stars, and a time of " + countTimer();
   let mpopup = document.getElementById('mpopupBox');
-  let mpLink = document.getElementById("mpopupLink");
   let close = document.getElementsByClassName("close")[0];
   mpopup.style.display = "block";
 
   close.onclick = function() {
       mpopup.style.display = "none";
   };
-};
+}
