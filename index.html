@@ -7,6 +7,7 @@
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -18,13 +19,13 @@
 
         <section class="score-panel">
         	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
+        		<li><i class="fa fa-star" id="nostar"></i></li>
+        		<li><i class="fa fa-star" id="onestar"></i></li>
+        		<li><i class="fa fa-star" id="twostar"></i></li>
         	</ul>
 
-        	<span class="moves">3</span> Moves
-            <span id="timer"></span>
+        	<span class="moves" id="moves">0</span> Moves
+            <span class ="timer" id="timer"></span>
             <div class="restart">
         		  <i class="fa fa-repeat"></i>
         	  </div>
@@ -81,6 +82,25 @@
             </li>
         </ul>
     </div>
+
+    <!-- trigger the mPopup -->
+<a href="#" id="mpopupLink" onclick="openModal()">Open Popup</a>
+
+<!-- mPopup box -->
+<div id="mpopupBox" class="mpopup">
+    <!-- mPopup content -->
+    <div class="mpopup-content">
+        <div class="mpopup-head">
+            <span class="close">×</span>
+            <h2>Congratulations You Won!!</h2>
+        </div>
+        <div class="mpopup-main">
+            <p id="popup"></p>
+            <button class="button" type="button" onclick="window.location.href='index.html'">Play Again</button>
+        </div>
+
+    </div>
+</div>
 
     <script src="js/app.js"></script>
 </body>
