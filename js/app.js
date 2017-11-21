@@ -36,26 +36,20 @@ function cardClickHandler(event) {
     document.getElementById("moves").innerHTML = moves;
 
 //Remove one star after 11 moves, but before 16 moves
-    if (moves > 13 && moves < 16) {
+    if (moves > 13 && moves < 19) {
       $('.stars').find('#twostar').attr('class','star');
       }
 
 //Remove two stars after 15 moves
-    if (moves >= 16 && moves < 20) {
-      $('.stars').find('#twostar').remove();
-      $('.stars').find('#onestar').remove();
-    }
-
-//remove three stars after 19 Moves
-    if (moves >= 20) {
-      $('.stars').find('#twostar').remove();
-      $('.stars').find('#onestar').remove();
-      $('.stars').find('#nostar').remove();
+    if (moves >= 19) {
+      $('.stars').find('#twostar').attr('class','star');
+      $('.stars').find('#onestar').attr('class','star');
     }
 
 //If function when the two cards are a match
     if (classone == classtwo){
         $('.click').attr('class','open card show match');
+        document.getElementsByClassName("match").removeEventListener("click", cardClickHandler);
         if (($('.match').length)==16) {
           modalfire ();
         }
