@@ -69,6 +69,7 @@ $('.card').on('click', cardClickHandler);
 $('.card').on('click', Timer);
 
 //Timer to display at start of game
+let timerVar;
 function Timer(event) {
   let timerVar = setInterval(countTimer, 1000);
   let totalSeconds = 0;
@@ -79,10 +80,6 @@ function Timer(event) {
      let seconds = totalSeconds - (minute*60);
      let time = minute + ":" + seconds;
      document.getElementById("timer").innerHTML = time;
-     if ($('.match').length==16) {
-       totalSeconds = totalSeconds;
-       document.getElementById("timer").innerHTML = time;
-     }
   };
 }
 
@@ -101,6 +98,7 @@ $('.restart').on('click', function () {
 //Function to track moves, time, and stars once game is Won and pop up
 function modalfire() {
   document.getElementById("popup").innerHTML = "With " + moves + " moves, and " + $('.fa-star').length + " stars, and a time of " + document.getElementById("timer").innerHTML;
+  clearInterval(timerVar);
   let mpopup = document.getElementById('mpopupBox');
   let close = document.getElementsByClassName("close")[0];
   mpopup.style.display = "block";
