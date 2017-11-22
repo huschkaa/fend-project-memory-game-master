@@ -71,7 +71,7 @@ $('.card').on('click', Timer);
 //Timer to display at start of game
 let timerVar;
 function Timer(event) {
-  let timerVar = setInterval(countTimer, 1000);
+  timerVar = setInterval(countTimer, 1000);
   let totalSeconds = 0;
   $('.card').off('click', Timer);
   function countTimer() {
@@ -80,6 +80,7 @@ function Timer(event) {
      let seconds = totalSeconds - (minute*60);
      let time = minute + ":" + seconds;
      document.getElementById("timer").innerHTML = time;
+
   };
 }
 
