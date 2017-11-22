@@ -49,9 +49,9 @@ function cardClickHandler(event) {
 //If function when the two cards are a match
     if (classone == classtwo){
         $('.click').attr('class','open card show match');
-        document.getElementsByClassName("match").removeEventListener("click", cardClickHandler);
+        $('.match').off('click');
         if (($('.match').length)==16) {
-          modalfire ();
+        modalfire ();
         }
         return moves;
     }
@@ -66,19 +66,25 @@ function cardClickHandler(event) {
 }
 
 $('.card').on('click', cardClickHandler);
+$('.card').on('click', Timer);
 
 //Timer to display at start of game
+function Timer(event) {
   let timerVar = setInterval(countTimer, 1000);
   let totalSeconds = 0;
+  $('.card').off('click', Timer);
   function countTimer() {
      ++totalSeconds;
      let minute = Math.floor(totalSeconds/60);
      let seconds = totalSeconds - (minute*60);
      let time = minute + ":" + seconds;
      document.getElementById("timer").innerHTML = time;
-     return time;
-  }
-
+     if ($('.match').length==16) {
+       totalSeconds = totalSeconds;
+       document.getElementById("timer").innerHTML = time;
+     }
+  };
+}
 
 //function when restart is clicked to shuffle board, restart clock, moves, and stars
 $('.restart').on('click', function () {
@@ -94,7 +100,7 @@ $('.restart').on('click', function () {
 
 //Function to track moves, time, and stars once game is Won and pop up
 function modalfire() {
-  document.getElementById("popup").innerHTML = "With " + moves + " moves, and " + $('.fa-star').length + " stars, and a time of " + countTimer();
+  document.getElementById("popup").innerHTML = "With " + moves + " moves, and " + $('.fa-star').length + " stars, and a time of " + document.getElementById("timer").innerHTML;
   let mpopup = document.getElementById('mpopupBox');
   let close = document.getElementsByClassName("close")[0];
   mpopup.style.display = "block";
