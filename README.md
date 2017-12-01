@@ -15,7 +15,7 @@ $ Git Clone https://github.com/huschkaa/fend-project-memory-game-master.git
 ```
 ## Instructions
 
-The memory game is a classic card matching game. You will be able to test how well you are able to memorize the location of cards and match them.
+The memory game is a classic card matching game. You will be able to test how well you are able to memorize the location of cards and matchs them.
 
 **How to Win**
 * You match 8 different card pairings.
