@@ -15,7 +15,7 @@ $ Git Clone https://github.com/huschkaa/fend-project-memory-game-master.git
 
 Live Version: 
 
-https://huschkaa.github.io/fend-project-memory-game-master/
+[https://huschkaa.github.io/fend-project-memory-game-master/](https://huschkaa.github.io/fend-project-memory-game-master/)
 ```
 ## Instructions
 
