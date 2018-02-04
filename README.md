@@ -12,11 +12,11 @@
 Ensure you have moved to a location in your directory where you want to copy the project via, "cd":
 
 $ Git Clone https://github.com/huschkaa/fend-project-memory-game-master.git
-
+```
 Live Version: 
 
 [https://huschkaa.github.io/fend-project-memory-game-master/](https://huschkaa.github.io/fend-project-memory-game-master/)
-```
+
 ## Instructions
 
 The memory game is a classic card matching game. You will be able to test how well you are able to memorize the location of cards and matchs them.
